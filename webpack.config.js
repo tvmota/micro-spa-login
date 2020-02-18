@@ -5,9 +5,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: ['src/singleSpaEntry.js'],
   output: {
-    library: 'single-spa-react-app',
+    library: 'app',
     libraryTarget: 'umd',
-    filename: 'single-spa-react-app.js',
+    filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -46,5 +46,11 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     writeToDisk: true,
+    port: 8080,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
+    },
   },
 };
